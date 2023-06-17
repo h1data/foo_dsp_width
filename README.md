@@ -13,7 +13,7 @@ A DSP component for foobar2000 which narrows the width of stereo panning.
 
 ### Build dependencies
 - Visual Studio Community 2022 Version 17.0.5
-- foobar2000 SDK https://www.foobar2000.org/SDK
+- foobar2000 SDK 2021-02-23 v1.6 https://www.foobar2000.org/SDK
 - Windows Template Library https://sourceforge.net/projects/wtl/
 
 #### Project directories
