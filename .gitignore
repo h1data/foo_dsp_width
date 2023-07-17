@@ -1,4 +1,12 @@
 ﻿/.vs/foo_dsp_width
-/Release FB2K
 /Release
 foo_dsp_width.aps
+/lib
+/packages
+/x64
+/Debug
+/src/x64/Debug
+/src/Debug
+/src/.vs/foo_dsp_width
+/src/Release
+/src/x64/Release
