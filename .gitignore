@@ -1,12 +1,12 @@
-﻿/.vs/foo_dsp_width
+﻿/.vs
 /Release
 foo_dsp_width.aps
 /lib
 /packages
 /x64
 /Debug
+/src/.vs
 /src/x64/Debug
 /src/Debug
-/src/.vs/foo_dsp_width
 /src/Release
 /src/x64/Release

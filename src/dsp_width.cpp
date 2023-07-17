@@ -2,7 +2,7 @@
 #include "dsp_width.h"
 #include "dsp_width_dialog.h"
 
-DECLARE_COMPONENT_VERSION("Stereo Width", "1.0.0", "Stereo Width DSP component 1.0.0\nby h1data");
+DECLARE_COMPONENT_VERSION("Stereo Width", "1.1.0", "Stereo Width DSP component 1.1.0\nby h1data");
 VALIDATE_COMPONENT_FILENAME("foo_dsp_width.dll");
 
 void dsp_width_params::set_width(audio_sample width) {
