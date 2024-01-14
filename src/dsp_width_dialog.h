@@ -10,7 +10,7 @@ public:
 
 	enum {
 		RangeMin = 0,
-		RangeMax = 1000,
+		RangeMax = 4000,
 		RangeTotal = RangeMax - RangeMin
 	};
 

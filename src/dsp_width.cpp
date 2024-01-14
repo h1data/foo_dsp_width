@@ -2,13 +2,22 @@
 #include "dsp_width.h"
 #include "dsp_width_dialog.h"
 
-DECLARE_COMPONENT_VERSION("Stereo Width", "1.1.0", "Stereo Width DSP component 1.1.0\nby h1data");
+DECLARE_COMPONENT_VERSION("Stereo Width", "1.2.0", "Stereo Width DSP component 1.2.0\nby h1data");
 VALIDATE_COMPONENT_FILENAME("foo_dsp_width.dll");
 
 void dsp_width_params::set_width(audio_sample width) {
 	this->width = width;
-	this->c1 = 0.5f * (1.0f + width * width);
-	this->c2 = 0.5f * (1.0f - width * width);
+
+	if (width < 1.0) {
+		this->c1 = 0.5;
+		this->c2 = width * width * 0.5;
+	}
+	else {
+		audio_sample tmp;
+		tmp = 1 / (1 + width);
+		this->c1 = tmp;
+		this->c2 = width * tmp;
+	}
 }
 
 void DspWidth::on_endofplayback(abort_callback&) { }
@@ -39,20 +48,20 @@ bool DspWidth::on_chunk(audio_chunk* chunk, abort_callback&) {
 	if (chunk->get_channel_config() != audio_chunk::channel_config_stereo) return true;
 
 	audio_sample* samples = chunk->get_data();
-	audio_sample lamp, ramp;
+	audio_sample m, s;
 	t_size count = chunk->get_sample_count();
 	for (t_size i = 0; i < count; i++) {
-		lamp = samples[i * 2];
-		ramp = samples[i * 2 + 1];
-		samples[i * 2] = m_params.c1 * lamp + m_params.c2 * ramp;
-		samples[i * 2 + 1] = m_params.c2 * lamp + m_params.c1 * ramp;
+		m = (samples[i * 2 + 1] + samples[i * 2]) * m_params.c1;
+		s = (samples[i * 2 + 1] - samples[i * 2]) * m_params.c2;
+		samples[i * 2] = m - s;
+		samples[i * 2 + 1] = m + s;
 	}
 	chunk->set_data(samples, count, 2, chunk->get_srate());
 	return true;
 }
 
 bool DspWidth::g_get_default_preset(dsp_preset& p_out) {
-	make_preset(dsp_width_params(0.5), p_out);
+	make_preset(dsp_width_params(1.0), p_out);
 	return true;
 }
 
@@ -69,7 +78,7 @@ void DspWidth::parse_preset(dsp_width_params& params, const dsp_preset& in) {
 		params.set_width(params.width);
 	}
 	catch (exception_io_data) {
-		params.set_width(0.5);
+		params.set_width(1.00);
 	}
 }
 
