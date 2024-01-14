@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "resource.h"
+#include "dsp_width.h"
 
 class DspWidthDialog : public CDialogImpl<DspWidthDialog> {
 public:
@@ -19,6 +20,7 @@ public:
 		COMMAND_HANDLER_EX(IDOK, BN_CLICKED, OnButton)
 		COMMAND_HANDLER_EX(IDCANCEL, BN_CLICKED, OnButton)
 		MSG_WM_HSCROLL(OnHScroll)
+		NOTIFY_HANDLER(IDC_SPIN, UDN_DELTAPOS, OnDeltaposSpin)
 	END_MSG_MAP()
 
 private:
@@ -26,7 +28,9 @@ private:
 	BOOL OnInitDialog(CWindow, LPARAM);
 	void OnButton(UINT, int, CWindow);
 	void OnHScroll(UINT, UINT, CScrollBar);
+	LRESULT OnDeltaposSpin(int, LPNMHDR, BOOL&);
 	void RefreshLabel(float);
+	void UpdatePreset(dsp_width_params);
 
 	const dsp_preset& m_initData;
 	dsp_preset_edit_callback& m_callback;

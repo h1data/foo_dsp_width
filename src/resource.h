@@ -7,6 +7,7 @@
 #define IDC_SLIDER_LABEL                1013
 #define IDC_LABEL_STEREO                1021
 #define IDC_LABEL_MONO                  1022
+#define IDC_SPIN                        1024
 
 // Next default values for new objects
 // 
@@ -14,7 +15,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        111
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1022
+#define _APS_NEXT_CONTROL_VALUE         1025
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
