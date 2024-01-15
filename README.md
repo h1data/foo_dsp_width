@@ -29,5 +29,7 @@ foo_dsp_width.sln
 </pre>
 3. Recovery WTL package from NuGet library.
 4. Install WTL package from NuGet package to `foobar2000_sdk_helpers` and `libPPUI` project.
+5. The component file will be created in `Releases` folder when you built for `x86`/`release`.<br>
+(`x86` is the last platform within batch build)
 
 Referred from https://github.com/Chocobo1/fb2k_example for folder arrangement.
