@@ -29,6 +29,7 @@ foo_dsp_width.sln
 </pre>
 3. Recovery WTL package from NuGet library.
 4. Install WTL package from NuGet package to `foobar2000_sdk_helpers` and `libPPUI` project.
-5. The dll files will be created in `Releases` folder. You have to compress to zip archive to use in foobar2000. (see issue #2)
+5. The dll files will be created in `Releases` folder. You have to compress to zip archive to use in foobar2000.
+(see [issue #2](https://github.com/h1data/foo_dsp_width/issues/2))
 
 Referred from https://github.com/Chocobo1/fb2k_example for folder arrangement.
