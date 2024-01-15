@@ -1,7 +1,7 @@
 # Stereo Width
 
 ## What is this?
-A DSP component for foobar2000 which narrows the width of stereo panning.
+A DSP component for foobar2000 which narrows and expands the width of stereo panning.
 
 ## Installation
 1. download the zip file started with "foo_dsp_width" from [Releases](https://github.com/h1data/foo_dsp_width/releases/latest) section 
@@ -29,7 +29,6 @@ foo_dsp_width.sln
 </pre>
 3. Recovery WTL package from NuGet library.
 4. Install WTL package from NuGet package to `foobar2000_sdk_helpers` and `libPPUI` project.
-5. The component file will be created in `Releases` folder when you built for `x86`/`release`.<br>
-(`x86` is the last platform within batch build)
+5. The dll files will be created in `Releases` folder. You have to compress to zip archive to use in foobar2000. (see issue #2)
 
 Referred from https://github.com/Chocobo1/fb2k_example for folder arrangement.

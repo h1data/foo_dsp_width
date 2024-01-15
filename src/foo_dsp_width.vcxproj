@@ -261,7 +261,7 @@
     <PostBuildEvent>
       <Message>
       </Message>
-      <Command>powershell -ExecutionPolicy RemoteSigned -File "$(SolutionDir)Batch\AfterBuild.ps1</Command>
+      <Command>powershell -ExecutionPolicy RemoteSigned -File "$(SolutionDir)Batch\AfterBuild_x86.ps1</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -291,6 +291,9 @@
       </DataExecutionPrevention>
       <AdditionalDependencies>../lib/foobar2000_SDK/foobar2000/shared/shared-$(Platform).lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>powershell -ExecutionPolicy RemoteSigned -File "$(SolutionDir)Batch\AfterBuild_x64.ps1</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <ClCompile>
